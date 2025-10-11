@@ -112,9 +112,9 @@
     text-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
   }
   
-  .bg-gradient-pokedex {
-    background: linear-gradient(135deg, #ef4444, #dc2626);
-  }
+.bg-gradient-pokedex {
+  background: linear-gradient(135deg, #b91c1c, #7f1d1d);
+}
   
   .bg-gradient-screen {
     background: linear-gradient(180deg, #0f172a, #1e293b);
