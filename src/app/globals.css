@@ -1,58 +1,88 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Roboto+Mono:wght@400;500;600;700&display=swap');
 
+/* Tailwind directives - these should work without errors */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Pokédex Design System - Enhanced Digital Interface Theme */
+/* Pokédex Design System - Digital Interface Theme */
 
 @layer base {
   :root {
-    /* Enhanced Pokédex Brand Colors - Darker & More Professional */
-    --pokedex-red: 0 70% 45%;
-    --pokedex-red-dark: 0 70% 35%;
-    --pokedex-blue: 217 91% 55%;
-    --pokedex-blue-dark: 217 91% 45%;
+    /* Pokédex Brand Colors */
+    --pokedex-red: 0 84% 60%;
+    --pokedex-red-dark: 0 84% 50%;
+    --pokedex-blue: 217 91% 60%;
+    --pokedex-blue-dark: 217 91% 50%;
     --pokedex-green: 142 76% 36%;
-    --pokedex-yellow: 45 93% 58%;
-    --pokedex-purple: 270 70% 60%;
+    --pokedex-yellow: 45 100% 60%;
     
-    /* Enhanced Digital Screen Colors */
-    --screen-bg: 220 25% 12%;
+    /* Digital Screen Colors */
+    --screen-bg: 220 13% 8%;
     --screen-glow: 217 91% 60%;
-    --screen-text: 142 86% 68%;
-    --screen-border: 217 91% 40%;
+    --screen-text: 142 76% 60%;
+    --screen-border: 217 91% 30%;
     
     /* Base System Colors */
-    --background: 240 15% 8%;
-    --foreground: 142 86% 68%;
+    --background: 240 10% 3.9%;
+    --foreground: 142 76% 60%;
 
-    --card: 220 25% 12%;
-    --card-foreground: 142 86% 68%;
+    --card: 220 13% 8%;
+    --card-foreground: 142 76% 60%;
 
-    --popover: 220 25% 12%;
-    --popover-foreground: 142 86% 68%;
+    --popover: 220 13% 8%;
+    --popover-foreground: 142 76% 60%;
 
-    --primary: 0 70% 45%;
+    --primary: 0 84% 60%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 217 91% 55%;
+    --secondary: 217 91% 60%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 220 20% 20%;
-    --muted-foreground: 142 76% 50%;
+    --muted: 220 13% 15%;
+    --muted-foreground: 142 76% 40%;
 
     --accent: 142 76% 36%;
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 70% 45%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 217 91% 40%;
-    --input: 220 20% 18%;
-    --ring: 142 86% 68%;
+    --border: 217 91% 30%;
+    --input: 220 13% 15%;
+    --ring: 142 76% 60%;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
   }
 }
 
@@ -65,229 +95,102 @@
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
     font-family: 'Roboto Mono', monospace;
-    overflow-x: hidden;
   }
 }
 
-/* Enhanced Pokédex Custom Utilities */
+/* Pokédex Custom Utilities */
 @layer utilities {
   .font-digital {
     font-family: 'Orbitron', 'Roboto Mono', monospace;
-    letter-spacing: 0.05em;
   }
   
   .text-glow-green {
-    text-shadow: 0 0 20px rgba(34, 197, 94, 0.6), 0 0 40px rgba(34, 197, 94, 0.3);
+    text-shadow: 0 0 15px rgba(34, 197, 94, 0.4);
   }
   
   .text-glow-blue {
-    text-shadow: 0 0 20px rgba(59, 130, 246, 0.6), 0 0 40px rgba(59, 130, 246, 0.3);
-  }
-  
-  .text-glow-red {
-    text-shadow: 0 0 20px rgba(239, 68, 68, 0.6), 0 0 40px rgba(239, 68, 68, 0.3);
+    text-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
   }
   
   .bg-gradient-pokedex {
-    background: linear-gradient(135deg, 
-      hsl(0, 70%, 35%) 0%,
-      hsl(0, 70%, 25%) 50%,
-      hsl(0, 70%, 15%) 100%);
-    background-size: 200% 200%;
-    animation: gradientShift 8s ease infinite;
+    background: linear-gradient(135deg, #ef4444, #dc2626);
   }
   
   .bg-gradient-screen {
-    background: linear-gradient(145deg, 
-      hsl(220, 25%, 10%) 0%,
-      hsl(220, 25%, 15%) 50%,
-      hsl(220, 25%, 8%) 100%);
-  }
-  
-  .bg-gradient-card {
-    background: linear-gradient(145deg, 
-      rgba(30, 41, 59, 0.3) 0%,
-      rgba(15, 23, 42, 0.6) 50%,
-      rgba(30, 41, 59, 0.4) 100%);
-    backdrop-filter: blur(10px);
+    background: linear-gradient(180deg, #0f172a, #1e293b);
   }
   
   .shadow-pokedex {
-    box-shadow: 
-      0 20px 40px -10px rgba(0, 0, 0, 0.4),
-      0 10px 20px -5px rgba(0, 0, 0, 0.3),
-      inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  }
-  
-  .shadow-neon {
-    box-shadow: 
-      0 0 20px rgba(59, 130, 246, 0.3),
-      0 0 40px rgba(59, 130, 246, 0.2),
-      inset 0 0 20px rgba(59, 130, 246, 0.1);
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.3);
   }
   
   .screen-border {
-    border: 2px solid hsl(var(--screen-border));
-    box-shadow: 
-      inset 0 0 30px rgba(0, 0, 0, 0.6),
-      0 0 20px rgba(30, 64, 175, 0.4);
+    border: 2px solid #1e40af;
+    box-shadow: inset 0 0 10px rgba(30, 64, 175, 0.2);
   }
 
   .hardware-button {
-    background: linear-gradient(145deg, 
-      rgba(30, 41, 59, 0.9) 0%,
-      rgba(15, 23, 42, 0.7) 50%,
-      rgba(30, 41, 59, 0.8) 100%);
+    background: linear-gradient(to bottom, rgba(30, 41, 59, 0.8), rgba(30, 41, 59, 0.4));
     border: 2px solid hsl(var(--border));
-    border-radius: 0.75rem;
+    border-radius: 0.5rem;
     box-shadow: 
-      0 6px 12px rgba(0, 0, 0, 0.3),
-      inset 0 2px 4px rgba(255, 255, 255, 0.1),
-      inset 0 -2px 4px rgba(0, 0, 0, 0.3);
+      0 4px 8px rgba(0, 0, 0, 0.3),
+      inset 0 1px 2px rgba(255, 255, 255, 0.1),
+      inset 0 -1px 2px rgba(0, 0, 0, 0.2);
     font-family: 'Orbitron', 'Roboto Mono', monospace;
     font-weight: 600;
-    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hardware-button::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-    transition: left 0.5s;
-  }
-
-  .hardware-button:hover::before {
-    left: 100%;
+    transition: all 75ms;
   }
 
   .hardware-button:hover {
-    background: linear-gradient(145deg, 
-      rgba(59, 130, 246, 0.2) 0%,
-      rgba(30, 41, 59, 0.9) 50%,
-      rgba(15, 23, 42, 0.8) 100%);
-    border-color: hsl(var(--pokedex-blue));
-    transform: translateY(-2px);
-    box-shadow: 
-      0 8px 16px rgba(0, 0, 0, 0.4),
-      inset 0 2px 4px rgba(255, 255, 255, 0.15),
-      inset 0 -2px 4px rgba(0, 0, 0, 0.4);
+    background: linear-gradient(to bottom, rgba(30, 41, 59, 1), rgba(30, 41, 59, 0.6));
   }
 
   .hardware-button:active {
-    transform: translateY(0);
+    transform: translateY(1px);
     box-shadow: 
-      0 2px 4px rgba(0, 0, 0, 0.4),
-      inset 0 2px 4px rgba(0, 0, 0, 0.3);
+      0 2px 4px rgba(0, 0, 0, 0.3),
+      inset 0 1px 2px rgba(0, 0, 0, 0.2);
   }
 
   .control-panel {
-    background: linear-gradient(145deg, 
-      rgba(30, 41, 59, 0.3) 0%,
-      rgba(15, 23, 42, 0.5) 50%,
-      rgba(30, 41, 59, 0.4) 100%);
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.2), rgba(30, 41, 59, 0.4));
     border: 1px solid hsl(var(--border));
-    border-radius: 1rem;
-    padding: 1.5rem;
+    border-radius: 0.75rem;
+    padding: 1rem;
     box-shadow: 
-      inset 0 4px 8px rgba(0, 0, 0, 0.2),
-      0 8px 16px rgba(0, 0, 0, 0.3),
-      0 0 20px rgba(59, 130, 246, 0.1);
-    backdrop-filter: blur(8px);
-    position: relative;
-  }
-
-  .control-panel::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, hsl(var(--pokedex-blue)), transparent);
+      inset 0 2px 4px rgba(0, 0, 0, 0.1),
+      0 2px 8px rgba(0, 0, 0, 0.2);
   }
 
   .screen-panel {
-    background: linear-gradient(145deg, 
-      hsl(220, 25%, 8%) 0%,
-      hsl(220, 25%, 12%) 50%,
-      hsl(220, 25%, 6%) 100%);
-    border: 2px solid hsl(var(--screen-border));
-    border-radius: 0.75rem;
+    background-color: #0f172a;
+    border: 2px solid #1e40af;
+    border-radius: 0.5rem;
     box-shadow: 
-      inset 0 0 40px rgba(0, 0, 0, 0.7),
-      0 0 30px rgba(59, 130, 246, 0.2),
-      0 0 60px rgba(59, 130, 246, 0.1);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .screen-panel::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(125deg, 
-      transparent 0%,
-      rgba(59, 130, 246, 0.05) 50%,
-      transparent 100%);
-    pointer-events: none;
+      inset 0 0 20px rgba(0, 0, 0, 0.5),
+      0 0 10px rgba(59, 130, 246, 0.3);
   }
 
   .led-indicator {
     border-radius: 9999px;
-    box-shadow: 
-      0 0 15px currentColor,
-      inset 0 2px 4px rgba(255, 255, 255, 0.3);
-    animation: pulse-glow 2s ease-in-out infinite;
+    box-shadow: 0 0 10px currentColor, inset 0 1px 2px rgba(255, 255, 255, 0.3);
   }
 
   .data-transition {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .pokemon-card {
-    background: linear-gradient(145deg, 
-      rgba(30, 41, 59, 0.4) 0%,
-      rgba(15, 23, 42, 0.6) 50%,
-      rgba(30, 41, 59, 0.5) 100%);
-    border: 1px solid hsl(var(--border));
-    border-radius: 1rem;
-    backdrop-filter: blur(10px);
-    transition: all 0.3s ease;
-  }
-
-  .pokemon-card:hover {
-    transform: translateY(-4px);
-    border-color: hsl(var(--pokedex-blue));
-    box-shadow: 
-      0 12px 24px rgba(0, 0, 0, 0.4),
-      0 0 20px rgba(59, 130, 246, 0.2);
+    transition: all 300ms ease-out;
   }
 }
 
-/* Enhanced Animations */
+/* Custom animations */
 @keyframes fadeIn {
-  from { 
-    opacity: 0; 
-    transform: scale(0.95);
-  }
-  to { 
-    opacity: 1; 
-    transform: scale(1);
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 @keyframes slideInLeft {
   from {
-    transform: translateX(-50px);
+    transform: translateX(-100%);
     opacity: 0;
   }
   to {
@@ -298,7 +201,7 @@
 
 @keyframes slideInRight {
   from {
-    transform: translateX(50px);
+    transform: translateX(100%);
     opacity: 0;
   }
   to {
@@ -307,20 +210,9 @@
   }
 }
 
-@keyframes slideInUp {
-  from {
-    transform: translateY(30px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
 @keyframes scaleIn {
   from {
-    transform: scale(0.8);
+    transform: scale(0.9);
     opacity: 0;
   }
   to {
@@ -340,62 +232,18 @@
   }
 }
 
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-@keyframes pulse-glow {
-  0%, 100% { 
-    opacity: 1; 
-    box-shadow: 0 0 15px currentColor, inset 0 2px 4px rgba(255, 255, 255, 0.3);
+/* Toast animations */
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
   }
-  50% { 
-    opacity: 0.7; 
-    box-shadow: 0 0 20px currentColor, inset 0 2px 4px rgba(255, 255, 255, 0.4);
+  to {
+    transform: translateX(0);
+    opacity: 1;
   }
 }
 
-@keyframes scanline {
-  0% { transform: translateY(-100%); }
-  100% { transform: translateY(100vh); }
-}
-
-/* Scanline effect for retro feel */
-.scanline {
-  position: relative;
-  overflow: hidden;
-}
-
-.scanline::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, rgba(34, 197, 94, 0.6), transparent);
-  animation: scanline 3s linear infinite;
-  z-index: 10;
-  pointer-events: none;
-}
-
-/* Custom scrollbar */
-.custom-scrollbar::-webkit-scrollbar {
-  width: 6px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-track {
-  background: rgba(30, 41, 59, 0.3);
-  border-radius: 3px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb {
-  background: hsl(var(--pokedex-blue));
-  border-radius: 3px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: hsl(var(--pokedex-blue-dark));
+.animate-slide-in-right {
+  animation: slideInRight 0.3s ease-out;
 }
