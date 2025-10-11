@@ -1,103 +1,77 @@
-import Image from "next/image";
+"use client";
+
+import { useState } from "react";
+import { PokemonSearch } from "@/components/PokemonSearch";
+import { PokemonDisplay } from "@/components/PokemonDisplay";
+import { Pokemon } from "@/types/pokemon";
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const [selectedPokemon, setSelectedPokemon] = useState(null);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  return (
+    <div className="min-h-screen bg-gradient-pokedex p-4 md:p-8">
+      <div className="max-w-6xl mx-auto">
+        {/* Pokédex Header */}
+        <div className="text-center mb-8">
+          <h1 className="text-4xl md:text-6xl font-digital font-black text-white text-glow-blue mb-2">
+            POKÉDEX
+          </h1>
+          <p className="text-sm md:text-base text-gray-300 font-digital mb-4">
+            Made by Anshuman
+          </p>
+          <div className="flex justify-center items-center space-x-4 mb-6">
+            <div className="w-3 h-3 bg-pokedex-yellow rounded-full shadow-lg"></div>
+            <div className="w-3 h-3 bg-pokedex-blue rounded-full shadow-lg"></div>
+            <div className="w-3 h-3 bg-pokedex-green rounded-full shadow-lg"></div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+        {/* Main Pokédex Interface */}
+        <div className="grid grid-cols-1 xl:grid-cols-12 gap-6">
+          {/* Left Panel - Search */}
+          <div className="xl:col-span-4 bg-screen-bg screen-border rounded-2xl p-4 shadow-pokedex">
+            <div className="bg-gradient-screen rounded-lg p-4">
+              <h2 className="text-lg font-digital font-bold text-screen-text mb-4 text-glow-green">
+                POKEMON SEARCH
+              </h2>
+              <PokemonSearch onPokemonSelect={setSelectedPokemon} />
+            </div>
+          </div>
+
+          {/* Right Panel - Display */}
+          <div className="xl:col-span-8 bg-screen-bg screen-border rounded-2xl p-4 shadow-pokedex">
+            <div className="bg-gradient-screen rounded-lg p-4">
+              <h2 className="text-lg font-digital font-bold text-screen-text mb-4 text-glow-green">
+                POKEMON DATA
+              </h2>
+              {selectedPokemon ? (
+                <PokemonDisplay pokemon={selectedPokemon} onPokemonSelect={setSelectedPokemon} />
+              ) : (
+                <div className="text-center py-12">
+                  <div className="text-6xl mb-4 opacity-30 animate-pulse">⚡</div>
+                  <p className="text-screen-text opacity-60 font-digital">
+                    Search for a Pokémon to view data
+                  </p>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Status Bar */}
+        <div className="mt-8 bg-screen-bg screen-border rounded-xl p-4">
+          <div className="flex items-center justify-between text-screen-text font-digital text-sm">
+            <div className="flex items-center space-x-2">
+              <div className="w-2 h-2 bg-pokedex-green rounded-full animate-pulse"></div>
+              <span>SYSTEM ONLINE</span>
+            </div>
+            <div className="flex items-center space-x-4">
+              <span>API: POKEAPI.CO</span>
+              <span>STATUS: CONNECTED</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
