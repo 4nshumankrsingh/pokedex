@@ -191,13 +191,13 @@ export const PokemonSearch = ({ onPokemonSelect }) => {
             onChange={(e) => setSearchTerm(e.target.value)}
             onKeyPress={handleKeyPress}
             onFocus={() => searchTerm.length > 1 && setShowSuggestions(true)}
-            className="font-digital bg-screen-bg border-screen-border text-screen-text placeholder:text-screen-text/50"
+            className="font-digital bg-screen-bg border-screen-border text-screen-text placeholder:text-screen-text/50 text-sm"
             disabled={isLoading}
           />
           <Button
             onClick={() => handleSearch()}
             disabled={isLoading}
-            className="hardware-button bg-pokedex-blue/80 hover:bg-pokedex-blue text-white px-3"
+            className="hardware-button bg-pokedex-blue/80 hover:bg-pokedex-blue text-white px-3 min-w-[50px]"
           >
             {isLoading ? (
               <Loader2 className="h-4 w-4 animate-spin" />
@@ -242,22 +242,22 @@ export const PokemonSearch = ({ onPokemonSelect }) => {
         <Button
           onClick={handleRandomPokemon}
           disabled={isLoading}
-          className="hardware-button bg-pokedex-yellow/80 hover:bg-pokedex-yellow text-black flex-1 text-sm py-2"
+          className="hardware-button bg-pokedex-yellow/80 hover:bg-pokedex-yellow text-black flex-1 text-sm py-2 h-9"
         >
           🎲 RANDOM
         </Button>
         <Button
           onClick={() => setShowTypeFilter(!showTypeFilter)}
-          className={`hardware-button flex-1 text-sm py-2 ${showTypeFilter ? 'bg-pokedex-green/20' : ''}`}
+          className={`hardware-button flex-1 text-sm py-2 h-9 ${showTypeFilter ? 'bg-pokedex-green/20' : ''}`}
         >
           <Filter className="h-3 w-3 mr-1" />
           TYPES
         </Button>
       </div>
 
-      {/* Type Filter */}
+      {/* Type Filter - Fixed height container */}
       {showTypeFilter && (
-        <div className="control-panel p-3 animate-slide-in-right">
+        <div className="control-panel p-3 animate-slide-in-right max-h-48 overflow-hidden">
           <div className="flex items-center justify-between mb-2">
             <span className="font-digital text-sm text-screen-text">SELECT TYPE</span>
             <Button
@@ -267,7 +267,7 @@ export const PokemonSearch = ({ onPokemonSelect }) => {
               <X className="h-3 w-3" />
             </Button>
           </div>
-          <div className="grid grid-cols-3 gap-1">
+          <div className="grid grid-cols-3 gap-1 max-h-32 overflow-y-auto">
             {pokemonTypes.map((type) => (
               <Button
                 key={type}
@@ -286,8 +286,8 @@ export const PokemonSearch = ({ onPokemonSelect }) => {
         </div>
       )}
 
-      {/* Quick Access Buttons */}
-      <div className="control-panel p-3">
+      {/* Quick Access Buttons - Fixed height */}
+      <div className="control-panel p-3 max-h-32">
         <div className="text-xs font-digital text-screen-text/70 mb-2">POPULAR POKÉMON</div>
         <div className="grid grid-cols-3 gap-1">
           {popularPokemon.map((pokemon) => (
@@ -306,12 +306,12 @@ export const PokemonSearch = ({ onPokemonSelect }) => {
         </div>
       </div>
 
-      {/* Search Tips - Compact Version */}
-      <div className="control-panel p-2">
-        <div className="text-xs font-digital text-screen-text/70 mb-1 text-center">SEARCH TIPS</div>
-        <div className="text-[10px] text-screen-text/60 text-center space-y-0.5">
-          <div>Start typing to see suggestions</div>
-          <div>Use name or ID number • Click suggestions to load</div>
+      {/* Fixed Search Tips Section */}
+      <div className="control-panel p-3 min-h-[80px] flex flex-col justify-center">
+        <div className="text-xs font-digital text-screen-text/70 mb-2 text-center">SEARCH TIPS</div>
+        <div className="text-[11px] text-screen-text/60 text-center leading-tight space-y-1">
+          <div className="block">Start typing to see suggestions</div>
+          <div className="block">Use name or ID number • Click suggestions to load</div>
         </div>
       </div>
     </div>

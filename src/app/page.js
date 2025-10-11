@@ -25,38 +25,37 @@ export default function Home() {
             <div className="w-3 h-3 bg-pokedex-green rounded-full shadow-lg"></div>
           </div>
         </div>
+        
+<div className="grid grid-cols-1 xl:grid-cols-12 gap-6">
+  {/* Left Panel - Search (Fixed size) */}
+  <div className="xl:col-span-4 bg-screen-bg screen-border rounded-2xl p-4 shadow-pokedex h-fit">
+    <div className="bg-gradient-screen rounded-lg p-4">
+      <h2 className="text-lg font-digital font-bold text-screen-text mb-4 text-glow-green">
+        POKEMON SEARCH
+      </h2>
+      <PokemonSearch onPokemonSelect={setSelectedPokemon} />
+    </div>
+  </div>
 
-        {/* Main Pokédex Interface */}
-        <div className="grid grid-cols-1 xl:grid-cols-12 gap-6">
-          {/* Left Panel - Search */}
-          <div className="xl:col-span-4 bg-screen-bg screen-border rounded-2xl p-4 shadow-pokedex">
-            <div className="bg-gradient-screen rounded-lg p-4">
-              <h2 className="text-lg font-digital font-bold text-screen-text mb-4 text-glow-green">
-                POKEMON SEARCH
-              </h2>
-              <PokemonSearch onPokemonSelect={setSelectedPokemon} />
-            </div>
-          </div>
-
-          {/* Right Panel - Display */}
-          <div className="xl:col-span-8 bg-screen-bg screen-border rounded-2xl p-4 shadow-pokedex">
-            <div className="bg-gradient-screen rounded-lg p-4">
-              <h2 className="text-lg font-digital font-bold text-screen-text mb-4 text-glow-green">
-                POKEMON DATA
-              </h2>
-              {selectedPokemon ? (
-                <PokemonDisplay pokemon={selectedPokemon} onPokemonSelect={setSelectedPokemon} />
-              ) : (
-                <div className="text-center py-12">
-                  <div className="text-6xl mb-4 opacity-30 animate-pulse">⚡</div>
-                  <p className="text-screen-text opacity-60 font-digital">
-                    Search for a Pokémon to view data
-                  </p>
-                </div>
-              )}
-            </div>
-          </div>
+  {/* Right Panel - Display (Can grow) */}
+  <div className="xl:col-span-8 bg-screen-bg screen-border rounded-2xl p-4 shadow-pokedex">
+    <div className="bg-gradient-screen rounded-lg p-4">
+      <h2 className="text-lg font-digital font-bold text-screen-text mb-4 text-glow-green">
+        POKEMON DATA
+      </h2>
+      {selectedPokemon ? (
+        <PokemonDisplay pokemon={selectedPokemon} onPokemonSelect={setSelectedPokemon} />
+      ) : (
+        <div className="text-center py-12">
+          <div className="text-6xl mb-4 opacity-30 animate-pulse">⚡</div>
+          <p className="text-screen-text opacity-60 font-digital">
+            Search for a Pokémon to view data
+          </p>
         </div>
+      )}
+    </div>
+  </div>
+</div>
 
         {/* Bottom Status Bar */}
         <div className="mt-8 bg-screen-bg screen-border rounded-xl p-4">
