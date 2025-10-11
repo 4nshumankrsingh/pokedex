@@ -120,10 +120,8 @@ const PokemonSearch = ({ onPokemonSelect }) => {
     // Create new toast
     const toast = document.createElement('div');
     toast.id = 'pokemon-toast';
-    toast.className = `fixed bottom-4 right-4 z-50 p-4 rounded-lg border-2 shadow-lg animate-slide-in-right max-w-sm ${
-      type === 'success' 
-        ? 'bg-green-500/50 border-green-500 text-green-900' 
-        : 'bg-red-500/50 border-red-500 text-red-900'
+    toast.className = `fixed bottom-4 right-4 z-50 p-4 rounded-lg border-2 shadow-lg animate-slide-in-right max-w-sm bg-black border-gray-700 ${
+      type === 'success' ? 'text-green-400' : 'text-red-400'
     }`;
     
     toast.innerHTML = `
@@ -135,9 +133,9 @@ const PokemonSearch = ({ onPokemonSelect }) => {
         </div>
         <div class="flex-1">
           <div class="font-digital font-bold text-sm">${title}</div>
-          <div class="font-digital text-xs opacity-90 mt-1">${description}</div>
+          <div class="font-digital text-xs mt-1 opacity-90">${description}</div>
         </div>
-        <button onclick="this.parentElement.parentElement.remove()" class="text-gray-700 hover:text-gray-900">
+        <button onclick="this.parentElement.parentElement.remove()" class="text-gray-400 hover:text-white">
           ×
         </button>
       </div>
@@ -376,4 +374,4 @@ const PokemonSearch = ({ onPokemonSelect }) => {
   );
 };
 
-export { PokemonSearch };  // Named export
+export { PokemonSearch };
