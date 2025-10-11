@@ -12,7 +12,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Pokedex - Pokemon Database",
+  title: "Pokédex - Pokemon Database",
   description: "A modern Pokedex built with Next.js 15",
 };
 
