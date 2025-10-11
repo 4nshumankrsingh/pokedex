@@ -362,12 +362,12 @@ const PokemonSearch = ({ onPokemonSelect }) => {
         </div>
       </div>
 
-      {/* Search Tips - Fixed compact version */}
-      <div className="control-panel p-2 max-h-20">
-        <div className="text-xs font-digital text-screen-text/70 mb-1 text-center">SEARCH TIPS</div>
-        <div className="text-[10px] text-screen-text/60 text-center space-y-0.5">
-          <div>Start typing to see suggestions</div>
-          <div>Use name or ID number • Click suggestions to load</div>
+      {/* Search Tips - Fixed with better layout and alignment */}
+      <div className="control-panel p-3 min-h-[5rem]">
+        <div className="text-xs font-digital text-screen-text/70 mb-2 text-center">SEARCH TIPS</div>
+        <div className="text-[10px] text-screen-text/60 text-center space-y-1">
+          <div className="leading-tight">Start typing to see auto-complete suggestions</div>
+          <div className="leading-tight">Use Pokémon name or ID number • Click suggestions to load instantly</div>
         </div>
       </div>
     </div>
