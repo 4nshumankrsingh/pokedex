@@ -28,7 +28,7 @@ A sleek, modern Pokédex web application built with Next.js 15, featuring real-t
 - **Physical Attributes**: Height, weight, and base experience
 
 ### 🎨 Modern UI/UX
-- **Digital Pokédex Theme**: Authentic Pokédex styling with LED indicators
+- **Digital Pokédex Theme**: Authentic Pokédex styling
 - **Responsive Design**: Optimized for desktop and mobile devices
 - **Smooth Animations**: Fade-in, slide-in, and scale animations
 - **Interactive Elements**: Hover effects and transition animations
