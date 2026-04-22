@@ -2,7 +2,7 @@
 
 <div align="center">
   
-![Home Page](/public/home-page.png)
+![Home Page](/home-page.png)
 
 A sleek, modern Pokédex web application built with Next.js 15, featuring real-time search, dynamic suggestions, and comprehensive Pokémon data visualization.
 
